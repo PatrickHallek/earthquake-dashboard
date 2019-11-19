@@ -1,5 +1,11 @@
 # EarthquakeDashboard
 
+In this project all earthquakes stored in the https://earthquake.usgs.gov/fdsnws/event/1/ api are listed in a data table. Here it is possible to select a certain time period, to sort the entries according to certain attributes and to filter the data by text input.
+
+![Table](https://github.com/PatrickHallek/earthquake-dashboard/blob/master/src/assets/table.PNG?raw=true)
+
+To finish the project, you would have to adjust the time code and you could display more interesting parameters of the earthquake.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
 
 ## Development server
