@@ -37,7 +37,8 @@ export class ApiUsgsService {
   }
 
   public getEarthquakeDataByDate(starttime: string, endtime: string) {
-    const url = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=' + starttime + '&endtime=' + endtime;
+    const url = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime='
+      + starttime + '&endtime=' + endtime + '&limit=1000';
     this.http.get(url).pipe(
       map((result: IEarthquakeData) => {
         return result.features.map((properties: IEarthquakeFeature) => {
