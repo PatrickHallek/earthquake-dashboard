@@ -31,7 +31,9 @@ export class EarthquakeTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiUsgsService.getEarthquakeDataByDate('2019-11-18', '2019-11-19');
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    this.apiUsgsService.getEarthquakeDataByDate(formatDate(yesterday, 'yyyy-MM-dd', 'de'), formatDate(new Date(), 'yyyy-MM-dd', 'de'));
     this.earthquakeDataSub = this.apiUsgsService
       .getEarthquakeDataListener()
       .subscribe((earthquakeData: Array<IEarthquakeProperties>) => {
