@@ -3,18 +3,19 @@
 </mat-form-field>
 
 <mat-form-field class="ml-5">
-  <input matInput [matDatepicker]="endtime" placeholder="Choose a startdate">
-  <mat-datepicker-toggle matSuffix [for]="endtime"></mat-datepicker-toggle>
-  <mat-datepicker #endtime></mat-datepicker>
+  <input matInput [matDatepicker]="picker1" placeholder="Choose a startdate" [(ngModel)]="starttime">
+  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
 </mat-form-field>
 
 <mat-form-field class="ml-2">
-  <input matInput [matDatepicker]="starttime" placeholder="Choose a enddate">
-  <mat-datepicker-toggle matSuffix [for]="starttime"></mat-datepicker-toggle>
-  <mat-datepicker #starttime></mat-datepicker>
+  <input matInput [matDatepicker]="picker2" placeholder="Choose a enddate" [(ngModel)]="endtime">
+  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+  <mat-datepicker #picker2></mat-datepicker>
 </mat-form-field>
 
-<button *ngIf="starttime && endtime" class="ml-3" mat-raised-button color="primary">Update</button>
+<button *ngIf="starttime && endtime" class="ml-3" mat-raised-button color="primary"
+  (click)="updateEarthquakeData()">Update</button>
 <button *ngIf="!starttime || !endtime" mat-button disabled>Disabled</button>
 
 
