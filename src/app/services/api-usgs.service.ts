@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export interface IEarthquakeProperties {
   mag: number;
   place: string;
-  time: number;
+  time: Date;
   alert: string;
   status: string;
   type: string;
