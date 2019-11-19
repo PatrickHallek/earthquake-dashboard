@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiUsgsService } from 'src/app/services/api-usgs.service';
+import { ApiUsgsService, IEarthquakeProperties } from 'src/app/services/api-usgs.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class EarthquakeTableComponent implements OnInit {
 
-  public earthquakeData;
+  public earthquakeData: Array<IEarthquakeProperties>;
   private earthquakeDataSub: Subscription;
 
   constructor(private apiUsgsService: ApiUsgsService) { }
@@ -18,7 +18,7 @@ export class EarthquakeTableComponent implements OnInit {
     this.apiUsgsService.getEarthquakeDataByDate('2019-11-18', '2019-11-19');
     this.earthquakeDataSub = this.apiUsgsService
       .getEarthquakeDataListener()
-      .subscribe((earthquakeData) => {
+      .subscribe((earthquakeData: Array<IEarthquakeProperties>) => {
         this.earthquakeData = earthquakeData;
       });
   }
