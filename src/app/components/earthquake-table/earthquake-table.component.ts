@@ -4,6 +4,11 @@ import { Subscription } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { formatDate } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+
+registerLocaleData(localeDe, 'de');
 
 @Component({
   selector: 'app-earthquake-table',
@@ -19,6 +24,8 @@ export class EarthquakeTableComponent implements OnInit {
   public dataSource: MatTableDataSource<IEarthquakeProperties>;
   public earthquakeData: Array<IEarthquakeProperties>;
   private earthquakeDataSub: Subscription;
+  public starttime;
+  public endtime;
 
   constructor(private apiUsgsService: ApiUsgsService) {
   }
@@ -41,6 +48,12 @@ export class EarthquakeTableComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  updateEarthquakeData() {
+    const starttime = formatDate(this.starttime, 'yyyy-MM-dd', 'de');
+    const endtime = formatDate(this.endtime, 'yyyy-MM-dd', 'de');
+    this.apiUsgsService.getEarthquakeDataByDate(starttime, endtime);
   }
 
 
