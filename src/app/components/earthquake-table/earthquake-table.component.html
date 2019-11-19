@@ -2,6 +2,22 @@
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 
+<mat-form-field class="ml-5">
+  <input matInput [matDatepicker]="endtime" placeholder="Choose a startdate">
+  <mat-datepicker-toggle matSuffix [for]="endtime"></mat-datepicker-toggle>
+  <mat-datepicker #endtime></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field class="ml-2">
+  <input matInput [matDatepicker]="starttime" placeholder="Choose a enddate">
+  <mat-datepicker-toggle matSuffix [for]="starttime"></mat-datepicker-toggle>
+  <mat-datepicker #starttime></mat-datepicker>
+</mat-form-field>
+
+<button *ngIf="starttime && endtime" class="ml-3" mat-raised-button color="primary">Update</button>
+<button *ngIf="!starttime || !endtime" mat-button disabled>Disabled</button>
+
+
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
 
