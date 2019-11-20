@@ -4,7 +4,7 @@ In this project all earthquakes stored in the https://earthquake.usgs.gov/fdsnws
 
 ![Table](https://github.com/PatrickHallek/earthquake-dashboard/blob/master/src/assets/table.PNG?raw=true)
 
-To finish the project, you would have to adjust the time code and you could display more interesting parameters of the earthquake.
+To finish the project, you would have to adjust the time code and you could display more interesting parameters of the earthquakes. The table is also not yet mobile responisve.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
 
