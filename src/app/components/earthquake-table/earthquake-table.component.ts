@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ngOnDestroy, ViewChild } from '@angular/core';
 import { ApiUsgsService, IEarthquakeProperties } from 'src/app/services/api-usgs.service';
 import { Subscription } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
@@ -61,5 +61,7 @@ export class EarthquakeTableComponent implements OnInit {
   }
 
 
-  ngOndelete() { }
+  OnDestroy() {
+    this.earthquakeDataSub.unsubscribe();
+  }
 }
