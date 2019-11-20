@@ -10,6 +10,7 @@ export interface IEarthquakeProperties {
   alert: string;
   status: string;
   type: string;
+  sig: number;
   // TODO: Add other api parameter if needed
 }
 
@@ -49,6 +50,7 @@ export class ApiUsgsService {
             alert: properties.properties.alert,
             status: properties.properties.status,
             type: properties.properties.type,
+            sig: properties.properties.sig
           };
           return earthquakeFeatureMap;
         });
