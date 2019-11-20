@@ -1,6 +1,7 @@
 # EarthquakeDashboard
 
-In this project all earthquakes stored in the https://earthquake.usgs.gov/fdsnws/event/1/ api are listed in a data table. Here it is possible to select a certain time period, to sort the entries according to certain attributes and to filter the data by text input.
+In this project all earthquakes provided by the [earthquakes api](https://earthquake.usgs.gov/fdsnws/event/1/
+) are listed in a data table.  Here it is possible to select a certain time period, to sort the entries according to certain attributes and to filter the data by text input.
 
 ![Table](https://github.com/PatrickHallek/earthquake-dashboard/blob/master/src/assets/table.PNG?raw=true)
 
