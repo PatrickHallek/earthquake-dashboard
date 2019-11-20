@@ -1,4 +1,4 @@
-import { Component, OnInit, ngOnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { ApiUsgsService, IEarthquakeProperties } from 'src/app/services/api-usgs.service';
 import { Subscription } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
@@ -15,7 +15,7 @@ registerLocaleData(localeDe, 'de');
   templateUrl: './earthquake-table.component.html',
   styleUrls: ['./earthquake-table.component.scss']
 })
-export class EarthquakeTableComponent implements OnInit {
+export class EarthquakeTableComponent implements OnInit, OnDestroy {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -61,7 +61,7 @@ export class EarthquakeTableComponent implements OnInit {
   }
 
 
-  OnDestroy() {
+  ngOnDestroy() {
     this.earthquakeDataSub.unsubscribe();
   }
 }
