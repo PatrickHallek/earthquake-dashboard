@@ -28,12 +28,14 @@ export class EarthquakeTableComponent implements OnInit {
   public endtime;
 
   constructor(private apiUsgsService: ApiUsgsService) {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    this.starttime = formatDate(yesterday, 'yyyy-MM-dd', 'de');
+    this.endtime = formatDate(new Date(), 'yyyy-MM-dd', 'de');
   }
 
   ngOnInit() {
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    this.apiUsgsService.getEarthquakeDataByDate(formatDate(yesterday, 'yyyy-MM-dd', 'de'), formatDate(new Date(), 'yyyy-MM-dd', 'de'));
+    this.apiUsgsService.getEarthquakeDataByDate(this.starttime, this.endtime);
     this.earthquakeDataSub = this.apiUsgsService
       .getEarthquakeDataListener()
       .subscribe((earthquakeData: Array<IEarthquakeProperties>) => {
