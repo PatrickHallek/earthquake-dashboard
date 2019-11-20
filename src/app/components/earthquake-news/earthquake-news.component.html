@@ -1,0 +1,8 @@
+<h2>Earthquake News - Past Day</h2>
+<mat-nav-list *ngFor="let data of significantEarthquakeData">
+  <mat-list-item class="row">
+    <div class="col-4"><b>Place:</b> {{data.place}}</div>
+    <div class="col-3"><b>Time:</b> {{data.time}}</div>
+    <div class="col-3"><b>Magnitude:</b> {{data.mag}}</div>
+  </mat-list-item>
+</mat-nav-list>

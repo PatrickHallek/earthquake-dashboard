@@ -9,12 +9,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { EarthquakeTableComponent } from './components/earthquake-table/earthquake-table.component';
 import { HomeComponent } from './screens/home/home.component';
+import { EarthquakeNewsComponent } from './components/earthquake-news/earthquake-news.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EarthquakeTableComponent,
-    HomeComponent
+    HomeComponent,
+    EarthquakeNewsComponent
   ],
   imports: [
     BrowserModule,
