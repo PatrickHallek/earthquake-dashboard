@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export interface IEarthquakeProperties {
   mag: number;
   place: string;
-  time: Date;
+  time: any;
   alert: string;
   status: string;
   type: string;
@@ -46,7 +46,7 @@ export class ApiUsgsService {
           const earthquakeFeatureMap: IEarthquakeProperties = {
             mag: properties.properties.mag,
             place: properties.properties.place,
-            time: properties.properties.time,
+            time: new Date(properties.properties.time).toISOString().slice(0, 19).replace('T', ' '),
             alert: properties.properties.alert,
             status: properties.properties.status,
             type: properties.properties.type,
