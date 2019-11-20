@@ -20,7 +20,7 @@ export class EarthquakeTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  public displayedColumns: string[] = ['mag', 'place', 'time', 'sig', 'status', 'type'];
+  public displayedColumns: string[] = ['mag', 'place', 'time', 'sig', 'type'];
   public dataSource: MatTableDataSource<IEarthquakeProperties>;
   public earthquakeData: Array<IEarthquakeProperties>;
   private earthquakeDataSub: Subscription;
