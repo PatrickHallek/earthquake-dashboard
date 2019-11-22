@@ -1,8 +1,9 @@
 # EarthquakeDashboard
 
-In this project earthquakes provided by the [earthquakes api](https://earthquake.usgs.gov/fdsnws/event/1/
-) are listed in a data table and the most significant earthquakes of the last 24 h are shown in a news component.  In the data table it is possible to select a certain time period, to sort the entries according to certain attributes and to filter the data by text input.
+In this project earthquakes provided by the [earthquakes api](https://earthquake.usgs.gov/fdsnws/event/1/) are listed in a data table and the most significant earthquakes of the last 24 h are shown in a news component. In the data table it is possible to select a certain time period, to sort the entries according to certain attributes and to filter the data by text input.
 
+![Table](https://github.com/PatrickHallek/earthquake-dashboard/blob/master/src/assets/news.PNG?raw=true)
+![Table](https://github.com/PatrickHallek/earthquake-dashboard/blob/master/src/assets/map.PNG?raw=true)
 ![Table](https://github.com/PatrickHallek/earthquake-dashboard/blob/master/src/assets/table.PNG?raw=true)
 
 Attention: The number of Api events has been limited to 1000. This number is already reached after a period of a few days. It is frightening how many earthquakes are recorded within one day (278 in the image). The dashboard is not yet mobile responisve.
