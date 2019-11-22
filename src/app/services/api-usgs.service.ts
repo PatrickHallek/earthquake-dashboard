@@ -16,6 +16,7 @@ export interface IEarthquakeProperties {
 
 export interface IEarthquakeFeature {
   properties: IEarthquakeProperties;
+  geometry: { coordinates: Array<number> }
   // TODO: Add other api parameter if needed
 }
 
@@ -29,7 +30,7 @@ export interface IEarthquakeData {
 })
 export class ApiUsgsService {
 
-  private earthquakeData = new Subject<Array<IEarthquakeProperties>>();
+  private earthquakeData = new Subject<Array<IEarthquakeFeature>>();
   private significantEarthquakeData = new Subject<Array<IEarthquakeProperties>>();
 
   constructor(private http: HttpClient) { }
@@ -48,20 +49,25 @@ export class ApiUsgsService {
       + starttime + '&endtime=' + endtime + '&limit=1000';
     this.http.get(url).pipe(
       map((result: IEarthquakeData) => {
-        return result.features.map((properties: IEarthquakeFeature) => {
-          const earthquakeFeatureMap: IEarthquakeProperties = {
-            mag: properties.properties.mag,
-            place: properties.properties.place,
-            time: new Date(properties.properties.time).toISOString().slice(0, 19).replace('T', ' '),
-            alert: properties.properties.alert,
-            status: properties.properties.status,
-            type: properties.properties.type,
-            sig: properties.properties.sig
+        return result.features.map((feature: IEarthquakeFeature) => {
+          const earthquakeFeatureMap: IEarthquakeFeature = {
+            properties: {
+              mag: feature.properties.mag,
+              place: feature.properties.place,
+              time: new Date(feature.properties.time).toISOString().slice(0, 19).replace('T', ' '),
+              alert: feature.properties.alert,
+              status: feature.properties.status,
+              type: feature.properties.type,
+              sig: feature.properties.sig,
+            },
+            geometry: {
+              coordinates: feature.geometry.coordinates
+            }
           };
           return earthquakeFeatureMap;
         });
       })
-    ).subscribe((result: Array<IEarthquakeProperties>) => {
+    ).subscribe((result: Array<IEarthquakeFeature>) => {
       this.earthquakeData.next(result);
     },
       err => console.error(err)
