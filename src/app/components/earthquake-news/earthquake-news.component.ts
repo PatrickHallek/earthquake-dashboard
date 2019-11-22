@@ -13,12 +13,11 @@ export class EarthquakeNewsComponent implements OnInit, OnDestroy {
   constructor(private apiUsgsService: ApiUsgsService) { }
 
   ngOnInit() {
-    this.apiUsgsService.getSignificantEarthquakePastDay()
+    this.apiUsgsService.getSignificantEarthquakePastDay();
     this.significantEarthquakeDataSub = this.apiUsgsService
       .getSignificantEarthquakeDataListener()
       .subscribe((significantEarthquakeData: Array<IEarthquakeProperties>) => {
         this.significantEarthquakeData = significantEarthquakeData;
-        console.log(significantEarthquakeData);
       });
   }
 
