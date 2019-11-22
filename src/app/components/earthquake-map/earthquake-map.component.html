@@ -1,6 +1,6 @@
 <h2 class="mt-5">Earthquake Map</h2>
 <agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker *ngFor="let feature of earthquakeData" [latitude]="feature.geometry.coordinates[0]"
-    [longitude]="feature.geometry.coordinates[1]">
+  <agm-marker *ngFor="let feature of earthquakeData" [latitude]="feature.geometry.coordinates[1]"
+    [longitude]="feature.geometry.coordinates[0]">
   </agm-marker>
 </agm-map>
