@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { ApiUsgsService, IEarthquakeProperties } from 'src/app/services/api-usgs.service';
+import { ApiUsgsService, IEarthquakeFeature, IEarthquakeProperties } from 'src/app/services/api-usgs.service';
 import { Subscription } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -22,7 +22,7 @@ export class EarthquakeTableComponent implements OnInit, OnDestroy {
 
   public displayedColumns: string[] = ['mag', 'place', 'time', 'sig', 'type'];
   public dataSource: MatTableDataSource<IEarthquakeProperties>;
-  public earthquakeData: Array<IEarthquakeProperties>;
+  public earthquakeData: Array<IEarthquakeFeature>;
   private earthquakeDataSub: Subscription;
   public starttime;
   public endtime;
@@ -38,9 +38,9 @@ export class EarthquakeTableComponent implements OnInit, OnDestroy {
     this.apiUsgsService.getEarthquakeDataByDate(this.starttime, this.endtime);
     this.earthquakeDataSub = this.apiUsgsService
       .getEarthquakeDataListener()
-      .subscribe((earthquakeData: Array<IEarthquakeProperties>) => {
+      .subscribe((earthquakeData: Array<IEarthquakeFeature>) => {
         this.earthquakeData = earthquakeData;
-        this.dataSource = new MatTableDataSource(this.earthquakeData);
+        this.dataSource = new MatTableDataSource(earthquakeData.map((result: IEarthquakeFeature) => result.properties));
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
