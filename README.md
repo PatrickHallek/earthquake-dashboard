@@ -5,8 +5,7 @@ In this project earthquakes provided by the [earthquakes api](https://earthquake
 
 ![Table](https://github.com/PatrickHallek/earthquake-dashboard/blob/master/src/assets/table.PNG?raw=true)
 
-Attention: The number of Api events has been limited to 1000. This number is already reached after a period of a few days. It is frightening how many earthquakes are recorded within one day (278 in the image).
-To finish the project, you could display more interesting parameters of the earthquakes and add a map to the dashboard. The table is also not yet mobile responisve.
+Attention: The number of Api events has been limited to 1000. This number is already reached after a period of a few days. It is frightening how many earthquakes are recorded within one day (278 in the image). The dashboard is not yet mobile responisve.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
 
